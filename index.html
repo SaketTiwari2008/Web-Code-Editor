@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Web Code Editor - VS Code Like</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/theme/dracula.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Web Code Editor</h1>
+    <div class="hamburger" id="hamburger">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    <div class="controls" id="controls">
+      <button id="newFileBtn">New File</button>
+      <button id="saveFileBtn">Save File</button>
+      <button id="deleteFileBtn">Delete File</button>
+      <button id="runBtn" title="Run Code" aria-label="Run Code">
+        &#9658; Run
+      </button>
+      <select id="fileSelect"></select>
+      <select id="themeSelect">
+        <option value="default">Light</option>
+        <option value="dracula" selected>Dark (Dracula)</option>
+      </select>
+    </div>
+  </header>
+  <main>
+    <div class="editors">
+      <div class="editor-container">
+        <label for="htmlEditor">HTML</label>
+        <textarea id="htmlEditor"></textarea>
+      </div>
+      <div class="editor-container">
+        <label for="cssEditor">CSS</label>
+        <textarea id="cssEditor"></textarea>
+      </div>
+      <div class="editor-container">
+        <label for="jsEditor">JavaScript</label>
+        <textarea id="jsEditor"></textarea>
+      </div>
+    </div>
+    <div class="preview-container">
+      <label>Live Preview</label>
+      <iframe id="preview" sandbox="allow-scripts allow-same-origin"></iframe>
+    </div>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/codemirror.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/xml/xml.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/javascript/javascript.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/mode/css/css.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closetag.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.13/addon/edit/closebrackets.min.js"></script>
+  <script src="script.js"></script>
+  <script>
+    const hamburger = document.getElementById('hamburger');
+    const controls = document.getElementById('controls');
+    hamburger.addEventListener('click', () => {
+      controls.classList.toggle('show');
+      hamburger.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
